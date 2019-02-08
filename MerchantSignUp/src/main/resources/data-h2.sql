@@ -1,0 +1,2 @@
+INSERT INTO MERCHANT VALUES ('001','Bawarchi','Restaurent','Datta mandir','Pune','MH','483501','Raghav','9876545678')
+INSERT INTO MERCHANT VALUES ('002','Bawarchi2','Restaurent','Datta mandir','Pune','MH','483501','Raghav','9876545678')

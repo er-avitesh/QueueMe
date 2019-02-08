@@ -7,7 +7,7 @@ import javax.persistence.Id;
 public class Merchant {
 
 	@Id
-	private int merchantId;
+	private String merchantId;
 	private String name;
 	private String category;
 	private String StreetAdd;
@@ -79,6 +79,14 @@ public class Merchant {
 
 	public void setContactPersonNumber(String contactPersonNumber) {
 		this.contactPersonNumber = contactPersonNumber;
+	}
+
+	public String getMerchantId() {
+		return merchantId;
+	}
+
+	public void setMerchantId(String merchantId) {
+		this.merchantId = merchantId;
 	}
 
 	@Override
