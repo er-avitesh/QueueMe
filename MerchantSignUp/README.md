@@ -1,12 +1,12 @@
 ## Merchant Signup Service
 
 ### LIST All REQUEST
-- URL : http://localhost:8080/merchant/listMerchants
+- URL : <u>http://localhost:8080/merchant/listMerchants</u>
 - RequestMethod : GET
 - BODY : NA
 
 ### Add REQUEST
-- URL : http://localhost:8080/merchant/add
+- URL : <u>http://localhost:8080/merchant/add</u>
 - RequestMethod : POST
 - BODY : 
 
