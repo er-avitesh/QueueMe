@@ -1,98 +1,119 @@
 package com.avitesh.queueapp.merchant.dao.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "merchant")
 public class Merchant {
 
 	@Id
-	private String merchantId;
-	private String name;
-	private String category;
-	private String StreetAdd;
-	private String City;
-	private String State;
-	private String zip;
-	private String contactPerson;
-	private String contactPersonNumber;
+	@Column(nullable = false)
+	private Long id;
 
-	public String getName() {
-		return name;
+	@Column(nullable = false)
+	private String merchantName;
+
+	@Column(nullable = false)
+	private String merchantCategory;
+
+	@Column(nullable = false)
+	private String merchantStAddress;
+
+	@Column(nullable = false)
+	private String merchantCity;
+
+	@Column(nullable = false)
+	private String merchantState;
+
+	@Column(nullable = false)
+	private String merchantZipCd;
+
+	@Column(nullable = false)
+	private String merchantContactPerson;
+
+	@Column(nullable = false)
+	private String merchantContactPersonNbr;
+
+	public Long getMerchantId() {
+		return id;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setMerchantId(Long merchantId) {
+		this.id = merchantId;
 	}
 
-	public String getCategory() {
-		return category;
+	public String getMerchantName() {
+		return merchantName;
 	}
 
-	public void setCategory(String category) {
-		this.category = category;
+	public void setMerchantName(String merchantName) {
+		this.merchantName = merchantName;
 	}
 
-	public String getStreetAdd() {
-		return StreetAdd;
+	public String getMerchantCategory() {
+		return merchantCategory;
 	}
 
-	public void setStreetAdd(String streetAdd) {
-		StreetAdd = streetAdd;
+	public void setMerchantCategory(String merchantCategory) {
+		this.merchantCategory = merchantCategory;
 	}
 
-	public String getCity() {
-		return City;
+	public String getMerchantStAddress() {
+		return merchantStAddress;
 	}
 
-	public void setCity(String city) {
-		City = city;
+	public void setMerchantStAddress(String merchantStAddress) {
+		this.merchantStAddress = merchantStAddress;
 	}
 
-	public String getState() {
-		return State;
+	public String getMerchantCity() {
+		return merchantCity;
 	}
 
-	public void setState(String state) {
-		State = state;
+	public void setMerchantCity(String merchantCity) {
+		this.merchantCity = merchantCity;
 	}
 
-	public String getZip() {
-		return zip;
+	public String getMerchantState() {
+		return merchantState;
 	}
 
-	public void setZip(String zip) {
-		this.zip = zip;
+	public void setMerchantState(String merchantState) {
+		this.merchantState = merchantState;
 	}
 
-	public String getContactPerson() {
-		return contactPerson;
+	public String getMerchantZipCd() {
+		return merchantZipCd;
 	}
 
-	public void setContactPerson(String contactPerson) {
-		this.contactPerson = contactPerson;
+	public void setMerchantZipCd(String merchantZipCd) {
+		this.merchantZipCd = merchantZipCd;
 	}
 
-	public String getContactPersonNumber() {
-		return contactPersonNumber;
+	public String getMerchantContactPerson() {
+		return merchantContactPerson;
 	}
 
-	public void setContactPersonNumber(String contactPersonNumber) {
-		this.contactPersonNumber = contactPersonNumber;
+	public void setMerchantContactPerson(String merchantContactPerson) {
+		this.merchantContactPerson = merchantContactPerson;
 	}
 
-	public String getMerchantId() {
-		return merchantId;
+	public String getMerchantContactPersonNbr() {
+		return merchantContactPersonNbr;
 	}
 
-	public void setMerchantId(String merchantId) {
-		this.merchantId = merchantId;
+	public void setMerchantContactPersonNbr(String merchantContactPersonNbr) {
+		this.merchantContactPersonNbr = merchantContactPersonNbr;
 	}
-
+	
 	@Override
 	public String toString() {
-		return "Merchant [merchantId=" + merchantId + ", name=" + name + ", category=" + category + ", StreetAdd="
-				+ StreetAdd + ", City=" + City + ", State=" + State + ", zip=" + zip + ", contactPerson="
-				+ contactPerson + ", contactPersonNumber=" + contactPersonNumber + "]";
+		return "Merchant [merchantId=" + id + ", name=" + merchantName + ", category=" + merchantCategory
+				+ ", StreetAdd=" + merchantStAddress + ", City=" + merchantCity + ", State=" + merchantState + ", zip="
+				+ merchantZipCd + ", contactPerson=" + merchantContactPerson + ", contactPersonNumber="
+				+ merchantContactPersonNbr + "]";
 	}
 }
