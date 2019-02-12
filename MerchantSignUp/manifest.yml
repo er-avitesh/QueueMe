@@ -1,0 +1,5 @@
+---
+applications:
+- name: merchantSignupApp
+  path: builds/libs/MerchantSignUp-0.0.1.jar
+  buildpack: java_buildpack
