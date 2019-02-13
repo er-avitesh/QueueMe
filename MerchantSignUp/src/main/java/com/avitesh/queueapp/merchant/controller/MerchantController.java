@@ -22,7 +22,7 @@ public class MerchantController {
 	public ResponseEntity<Object> addMerchant(@RequestBody Merchant merchantObj) {
 		return service.addMerchant(merchantObj);
 	}
-	
+
 	@RequestMapping(value = "/update", method = RequestMethod.PUT)
 	public ResponseEntity<Object> updateMerchant(@RequestBody Merchant merchantObj) {
 		return service.updateMerchant(merchantObj);
@@ -52,5 +52,9 @@ public class MerchantController {
 	public ResponseEntity<Object> findMerchantByName(@RequestBody Merchant merchantObj) {
 		return new ResponseEntity<>(service.getMerchantByName(merchantObj.getMerchantName()), HttpStatus.FOUND);
 	}
-	
+
+	@RequestMapping(value = "/deleteMerchant", method = RequestMethod.DELETE)
+	public ResponseEntity<Object> deleteMerchant(@RequestBody Merchant merchantObj) {
+		return service.deleteMerchant(merchantObj.getId());
+	}
 }

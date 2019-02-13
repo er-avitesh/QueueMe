@@ -104,4 +104,22 @@ public class MerchantService {
 		}
 
 	}
+
+	public ResponseEntity<Object> deleteMerchant(Long id) {
+		Optional<Merchant> merchant = repo.findById(id);
+		if (merchant.isPresent()) {
+			repo.deleteById(merchant.get().getId());
+			response.setMerchantId(id);
+			response.setName(merchant.get().getMerchantName());
+			response.setCategory(merchant.get().getMerchantCategory());
+			response.setMsg(msg.MERCHANT_DELETED);
+			return new ResponseEntity<>(response, HttpStatus.OK);
+		} else {
+			response.setMerchantId(id);
+			response.setName("NA");
+			response.setCategory("NA");
+			response.setMsg(msg.MERCHANT_NOT_FOUND);
+			return new ResponseEntity<>(response, HttpStatus.CONFLICT);
+		}
+	}
 }

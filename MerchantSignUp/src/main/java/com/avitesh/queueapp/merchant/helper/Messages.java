@@ -10,5 +10,6 @@ public class Messages {
 	public String MERCHANT_FOUND_BY_ID = "Merchant Found by ID";
 	public String MERCHANT_NOT_FOUND = "Merchant Not Found";
 	public String MERCHANT_UPDATED = "Merchant Updated";
+	public String MERCHANT_DELETED = "Merchant Deleted";
 
 }
