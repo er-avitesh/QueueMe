@@ -22,14 +22,15 @@ public class MerchantController {
 	public ResponseEntity<Object> addMerchant(@RequestBody Merchant merchantObj) {
 		return service.addMerchant(merchantObj);
 	}
+	
+	@RequestMapping(value = "/update", method = RequestMethod.PUT)
+	public ResponseEntity<Object> updateMerchant(@RequestBody Merchant merchantObj) {
+		return service.updateMerchant(merchantObj);
+	}
 
-	/*
-	 * @RequestMapping(value = "/listMerchants", method = RequestMethod.POST) public
-	 * Iterable<Merchant> listMerchant() { return service.listMerchant(); }
-	 */
 	@RequestMapping(value = "/listMerchants", method = RequestMethod.POST)
 	public ResponseEntity<Object> listMerchant() {
-		return new ResponseEntity<>(service.listMerchant(), HttpStatus.CREATED);
+		return new ResponseEntity<>(service.listMerchant(), HttpStatus.FOUND);
 	}
 
 	@RequestMapping(value = "/getMerchantbyid", method = RequestMethod.POST)
@@ -40,6 +41,16 @@ public class MerchantController {
 	@RequestMapping(value = "/getMerchantbycategory", method = RequestMethod.POST)
 	public ResponseEntity<Object> findMerchantByCategory(@RequestBody Merchant merchantObj) {
 		return new ResponseEntity<>(service.getMerchantByCategory(merchantObj.getMerchantCategory()), HttpStatus.FOUND);
-		// return service.getMerchantByCategory(merchantObj.getMerchantCategory());
 	}
+
+	@RequestMapping(value = "/getMerchantbycity", method = RequestMethod.POST)
+	public ResponseEntity<Object> findMerchantByCity(@RequestBody Merchant merchantObj) {
+		return new ResponseEntity<>(service.getMerchantByCity(merchantObj.getMerchantCity()), HttpStatus.FOUND);
+	}
+
+	@RequestMapping(value = "/getMerchantbyname", method = RequestMethod.POST)
+	public ResponseEntity<Object> findMerchantByName(@RequestBody Merchant merchantObj) {
+		return new ResponseEntity<>(service.getMerchantByName(merchantObj.getMerchantName()), HttpStatus.FOUND);
+	}
+	
 }

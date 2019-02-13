@@ -34,7 +34,6 @@ public class MerchantService {
 			response.setName(savedMerchant.getMerchantName());
 			response.setCategory(savedMerchant.getMerchantCategory());
 			response.setMsg(msg.MERCHANT_ADD_SUCCESS);
-
 			return new ResponseEntity<>(response, HttpStatus.CREATED);
 		} else {
 			response.setMerchantId(merchantObj.getId());
@@ -59,7 +58,7 @@ public class MerchantService {
 			return response;
 		} else {
 			response.setMerchantId(id);
-			response.setMsg(msg.MERCHANT_NOT_FOUND_BY_ID);
+			response.setMsg(msg.MERCHANT_NOT_FOUND);
 			return response;
 		}
 	}
@@ -67,5 +66,42 @@ public class MerchantService {
 	public Iterable<Merchant> getMerchantByCategory(String category) {
 		Iterable<Merchant> merchants = repo.findByMerchantCategory(category);
 		return merchants;
+	}
+
+	public Iterable<Merchant> getMerchantByCity(String city) {
+		Iterable<Merchant> merchants = repo.findByMerchantCity(city);
+		return merchants;
+	}
+
+	public Iterable<Merchant> getMerchantByName(String name) {
+		Iterable<Merchant> merchants = repo.findByMerchantName(name);
+		return merchants;
+	}
+
+	public ResponseEntity<Object> updateMerchant(Merchant input) {
+		Optional<Merchant> existingMerchant = repo.findById(input.getId());
+		if (existingMerchant.isPresent()) {
+			existingMerchant.get().setMerchantCategory(input.getMerchantCategory());
+			existingMerchant.get().setMerchantCity(input.getMerchantCity());
+			existingMerchant.get().setMerchantContactPerson(input.getMerchantContactPerson());
+			existingMerchant.get().setMerchantContactPersonNbr(input.getMerchantContactPersonNbr());
+			existingMerchant.get().setMerchantName(input.getMerchantName());
+			existingMerchant.get().setMerchantStAddress(input.getMerchantStAddress());
+			existingMerchant.get().setMerchantState(input.getMerchantState());
+			existingMerchant.get().setMerchantZipCd(input.getMerchantZipCd());
+			repo.save(existingMerchant.get());
+			response.setMerchantId(existingMerchant.get().getId());
+			response.setName(existingMerchant.get().getMerchantName());
+			response.setCategory(existingMerchant.get().getMerchantCategory());
+			response.setMsg(msg.MERCHANT_UPDATED);
+			return new ResponseEntity<>(response, HttpStatus.OK);
+		} else {
+			response.setMerchantId(input.getId());
+			response.setName(input.getMerchantName());
+			response.setCategory(input.getMerchantCategory());
+			response.setMsg(msg.MERCHANT_NOT_FOUND);
+			return new ResponseEntity<>(response, HttpStatus.CONFLICT);
+		}
+
 	}
 }
