@@ -37,14 +37,6 @@ public class Merchant {
 	@Column(nullable = false)
 	private String merchantContactPersonNbr;
 
-	public Long getMerchantId() {
-		return id;
-	}
-
-	public void setMerchantId(Long merchantId) {
-		this.id = merchantId;
-	}
-
 	public String getMerchantName() {
 		return merchantName;
 	}
@@ -108,7 +100,15 @@ public class Merchant {
 	public void setMerchantContactPersonNbr(String merchantContactPersonNbr) {
 		this.merchantContactPersonNbr = merchantContactPersonNbr;
 	}
-	
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	@Override
 	public String toString() {
 		return "Merchant [merchantId=" + id + ", name=" + merchantName + ", category=" + merchantCategory

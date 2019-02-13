@@ -28,16 +28,16 @@ public class MerchantService {
 	// LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
 	public ResponseEntity<Object> addMerchant(Merchant merchantObj) {
-		if (!repo.existsById(merchantObj.getMerchantId())) {
+		if (!repo.existsById(merchantObj.getId())) {
 			Merchant savedMerchant = repo.save(merchantObj);
-			response.setMerchantId(savedMerchant.getMerchantId());
+			response.setMerchantId(savedMerchant.getId());
 			response.setName(savedMerchant.getMerchantName());
 			response.setCategory(savedMerchant.getMerchantCategory());
 			response.setMsg(msg.MERCHANT_ADD_SUCCESS);
 
 			return new ResponseEntity<>(response, HttpStatus.CREATED);
 		} else {
-			response.setMerchantId(merchantObj.getMerchantId());
+			response.setMerchantId(merchantObj.getId());
 			response.setName(merchantObj.getMerchantName());
 			response.setCategory(merchantObj.getMerchantCategory());
 			response.setMsg(msg.MERCHANT_ADD_EXIST);
@@ -52,7 +52,7 @@ public class MerchantService {
 	public MerchantResponse getMerchantById(Long id) {
 		if (id != null && id > 0) {
 			Optional<Merchant> merchant = repo.findById(id);
-			response.setMerchantId(merchant.get().getMerchantId());
+			response.setMerchantId(merchant.get().getId());
 			response.setName(merchant.get().getMerchantName());
 			response.setCategory(merchant.get().getMerchantCategory());
 			response.setMsg(msg.MERCHANT_FOUND_BY_ID);
@@ -64,4 +64,8 @@ public class MerchantService {
 		}
 	}
 
+	public Iterable<Merchant> getMerchantByCategory(String category) {
+		Iterable<Merchant> merchants = repo.findByMerchantCategory(category);
+		return merchants;
+	}
 }

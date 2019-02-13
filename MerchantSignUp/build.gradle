@@ -33,6 +33,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	runtimeOnly 'com.h2database:h2'
 	runtimeOnly 'mysql:mysql-connector-java'
+	compile("org.springframework.boot:spring-boot-devtools")
 	implementation 'org.springframework.security:spring-security-core'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
