@@ -2,15 +2,19 @@ package com.avitesh.queueapp.merchant.dao.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "merchant")
+//@SequenceGenerator(name = "generator", sequenceName = "Seq1", allocationSize = 1)
 public class Merchant {
 
 	@Id
-	@Column(nullable = false)
+	//@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generator")
 	private Long id;
 
 	@Column(nullable = false)
@@ -105,7 +109,7 @@ public class Merchant {
 		return id;
 	}
 
-	public void setId(Long id) {
+	protected void setId(Long id) {
 		this.id = id;
 	}
 
