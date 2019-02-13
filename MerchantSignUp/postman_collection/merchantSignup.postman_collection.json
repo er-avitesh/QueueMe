@@ -1,0 +1,346 @@
+{
+	"info": {
+		"_postman_id": "eaf8c889-8c9b-463f-a683-0d62b5bf327e",
+		"name": "merchantSignup",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/merchant/listMerchants",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a845b908-2352-4ed1-bbd0-9e3774796b54",
+						"exec": [
+							"pm.test(\"Status code is 302\", function () { pm.response.to.have.status(302); });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/merchant/listMerchants",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"merchant",
+						"listMerchants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/merchant/add",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "890dabe4-833f-486f-b2c4-ef6a8003fea5",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () { pm.response.to.have.status(201); });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n        \"id\": \"005\",\n        \"merchantName\": \"ARMS Solution\",\n        \"merchantCategory\": \"Solar\",\n        \"merchantStAddress\": \"Bargwana\",\n        \"merchantCity\": \"Katni\",\n        \"merchantState\": \"MP\",\n        \"merchantZipCd\": \"483501\",\n        \"merchantContactPerson\": \"Mohit\",\n        \"merchantContactPersonNbr\": \"9584353583\"\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/merchant/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"merchant",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/merchant/getMerchantbyid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b5a7eced-fb4e-41e0-b17a-95433fd311d7",
+						"exec": [
+							"pm.test(\"Status code is 302\", function () { pm.response.to.have.status(302); });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\n\t\t\"id\": 2\n\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/merchant/getMerchantbyid",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"merchant",
+						"getMerchantbyid"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/merchant/getMerchantbycategory",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b845021e-e3e8-4761-bb14-da5b67f9da01",
+						"exec": [
+							"pm.test(\"Status code is 302\", function () { pm.response.to.have.status(302); });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\n\t\t\"merchantCategory\": \"Transport\"\n\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/merchant/getMerchantbycategory",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"merchant",
+						"getMerchantbycategory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/merchant/getMerchantbycity",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3d9a3bcb-0193-4330-b865-9aa5f6d86bd4",
+						"exec": [
+							"pm.test(\"Status code is 302\", function () { pm.response.to.have.status(302); });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\n\t\t\"merchantCity\": \"Pune\"\n\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/merchant/getMerchantbycity",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"merchant",
+						"getMerchantbycity"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/merchant/getMerchantbyname",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7ab77308-d3a6-4e64-b4f1-02d900a6b326",
+						"exec": [
+							"pm.test(\"Status code is 302\", function () { pm.response.to.have.status(302); });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\n\t\t\"merchantName\": \"BTC\"\n\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/merchant/getMerchantbyname",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"merchant",
+						"getMerchantbyname"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/merchant/update",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ed3bcc10-eb89-4f28-a3db-5a1e2094b76d",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"id\": 1,\n        \"merchantName\": \"Bawarchi\",\n        \"merchantCategory\": \"Restaurent\",\n        \"merchantStAddress\": \"Datta mandir\",\n        \"merchantCity\": \"Pune\",\n        \"merchantState\": \"MH\",\n        \"merchantZipCd\": \"452901\",\n        \"merchantContactPerson\": \"Avitesh\",\n        \"merchantContactPersonNbr\": \"9876545678\"\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/merchant/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"merchant",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/merchant/deleteMerchant",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4fb53dbc-de39-4eb9-822a-15ca944f5f2c",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\n\t\t\"id\": 5\n\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/merchant/deleteMerchant",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"merchant",
+						"deleteMerchant"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
