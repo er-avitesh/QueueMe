@@ -14,3 +14,8 @@ logging:
       hibernate:
         SQL: DEBUG
         type: TRACE
+      springframework:
+        boot:
+          autoconfigure:
+            logging: debug
+        web: DEBUG
